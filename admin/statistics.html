@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Dots">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Imbue">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Text+Me+One">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../scriptsFrontend/servicesBtn.js"></script>
+    <script src="../startUser/startUser.js"></script>
+    <script src="goodScripts/utils.js"></script>
+    <script src="statistics.js"></script>
+    <script>
+        if (localStorage.getItem('token')) {
+            getService().then(() => {
+                if (globalService == undefined) {
+                    localStorage.removeItem('token');
+                    window.location.href = "http://127.0.0.1:8000/mainHome/mainHome.html";
+                } else if (globalService != "admin")
+                    window.location.href = "http://127.0.0.1:8000/startUser/startUser.html"
+                else
+                    getUserStats().then(r =>
+                        showUsersStats()).then(() => {
+                        getRestaurantStats().then(
+                            showRestaurantStats
+                        )
+                    })
+                showStats();
+            })
+        } else window.location.href = "http://127.0.0.1:8000/mainHome/mainHome.html"
+        let csvs = "delivery.csv"
+    </script>
+    <link rel="stylesheet" href="statistics.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+</head>
+<body>
+
+<div class="header" itemscope itemtype="https://schema.org/Organization">
+    <a class="active" href="../mainHome/mainHome.html"><p itemprop="legalName">SerP</p></a>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Servicii</button>
+        <div class="dropdown-content" id="myDropdown">
+            <a href="../ride-sharing/ride-sharing.html"><p itemprop="makesOffer">Ride-sharing</p></a>
+            <a href="../food/food.html"><p itemprop="makesOffer">Food delivery</p></a>
+            <a href="../rent/rent.html"><p itemprop="makesOffer">Inchirieri</p></a>
+        </div>
+    </div>
+    <a class="link" onclick="logout()">Deconectare</a>
+</div>
+<div itemscope class="headerMobile" itemtype="https://schema.org/Organization">
+    <div class="header_small">
+        <a class="active" href="../startUser/startUser.html" itemprop="legalName"><p>SerP</p></a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunctionSmall()">Servicii</button>
+            <div class="dropdown-content" id="myDropdownsmall">
+                <a href="../ride-sharing/ride-sharing.html">Ride-sharing</a>
+                <a href="../food/food.html">Food delivery</a>
+                <a href="../rent/rent.html">Inchirieri</a>
+            </div>
+        </div>
+        <a class="link" onclick="logout()">Deconectare</a>
+    </div>
+</div>
+<div class="buton">
+<!--    <a href="../admin" onclick="multiDownload()">-->
+        <button class="downloadButton" onclick="multiDownload()" ><i class="fa fa-download"></i> Download</button>
+<!--    </a>-->
+</div>
+<div class="boxStat" id="boxStat"></div>
+<br>
+<footer class="footer">
+    <p>&copy; 2022 Antorii</p>
+    <p>
+        <img src="../resources/earth.png" alt="earth">
+        Romania
+    </p>
+</footer>
+
+</body>
+</html>
