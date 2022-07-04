@@ -1,0 +1,36 @@
+{
+  "name": "antorii",
+  "version": "1.0.0",
+  "main": "REZERVE/test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CapsaDragosGabriel/Antorii.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CapsaDragosGabriel/Antorii/issues"
+  },
+  "homepage": "https://github.com/CapsaDragosGabriel/Antorii#readme",
+  "description": "",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fast-csv": "^4.3.6",
+    "fetch": "^1.1.0",
+    "fetch-blob": "^3.1.5",
+    "file-saver": "^2.0.5",
+    "google-charts-node": "^1.0.4",
+    "jszip": "^3.10.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.2.6",
+    "nodemailer": "^6.7.5",
+    "pdfkit": "^0.13.0",
+    "pdfkit-table": "^0.1.99",
+    "uuid": "^8.3.2",
+    "xml2js": "^0.4.23"
+  }
+}

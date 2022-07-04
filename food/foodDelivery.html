@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Text+Me+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Dots">
+    <link rel="stylesheet" href="foodDelivery.css">
+    <script src="../startUser/startUser.js"></script>
+    <script src="delivery.js"></script>
+    <script>
+        if (localStorage.getItem('token')) {
+            getUsername();
+            changeUsername();
+            getService().then(p => {
+                if (globalService === undefined) {
+                    localStorage.removeItem('token');
+                    window.location.href = "http://127.0.0.1:8000/mainHome/mainHome.html";
+                } else if (globalService === "food") {
+                    getNewOrders().then(() => {
+                        getClaimedOrders().then(() => {
+                            refreshOrders();
+                            showOrders()
+                        })
+                    })
+
+                } else {
+                    window.location.href = "../startUser/startUser.html"
+                    //redirect pe pagina serviciului corespunzator
+                    //  window.location.href="https://stackoverflow.com/questions/1827063/mysql-error-key-specification-without-a-key-length";
+                }
+            })
+        } else window.location.href = "http://127.0.0.1:8000/mainHome/mainHome.html"
+
+
+    </script>
+    <script src="../scriptsFrontend/servicesBtn.js"></script>
+    <script src="../goodScripts/utils.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comenzi</title>
+</head>
+<body>
+<div class="header" itemscope itemtype="https://schema.org/Organization">
+    <a class="active"><p itemprop="legalName">SerP</p></a>
+
+    <a class="link" href="../login/login.html" onclick="logout()">Deconectare</a>
+</div>
+<div itemscope class="headerMobile" itemtype="https://schema.org/Organization">
+    <div class="header_small">
+        <a class="active" href="../mainHome/mainHome.html" itemprop="legalName"><p>SerP</p></a>
+        <a class="link" onclick="logout()">Deconectare</a>
+    </div>
+    <div class="menu-small">
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a onclick="showCommandsMobile()">
+                    <img class="img" src="../resources/istoric.png" alt="user" style="width:20px; height:20px;">
+                    Comenzile tale
+                </a>
+                <!--            <a href="#clients" class="promo">-->
+                <!--                <img class="img" src="../resources/coupon.png" alt="user" style="width:20px; height:20px;">-->
+                <!--                Promotii-->
+                <!--            </a>-->
+                <!--            <a href="#contact" class="status">-->
+                <!--                <img class="img" src="../resources/truck.png" alt="user" style="width:20px; height:20px;">-->
+                <!--                Status comanda-->
+                <!--            </a>-->
+            </div>
+        </div>
+        <span id="profile" onclick="openNav()">&#9776;</span>
+    </div>
+</div>
+<div id="details" itemscope itemtype="https://schema.org/Organization">
+    <div class="user-div">
+        <img class="img" src="../resources/user.png" alt="user" style="width:50px; height:50px;">
+        <p id="username">
+            Username
+        </p>
+    </div>
+    <div class="options">
+        <a class="istoric" onclick="showCommands()">
+            <img class="img" src="../resources/istoric.png" alt="user" style="width:20px; height:20px;">
+            Comenzi in asteptare
+        </a>
+    </div>
+</div>
+<div id="defaultTitle">Bine ai revenit, username!</div>
+<div id="commandsList">
+    <h2 id="title">Comenzi care te asteapta</h2>
+    <div class="command">
+        <div>
+            <h1>USER</h1>
+            <p>lista mancare?</p>
+        </div>
+        <label>
+            <select class="selectStatus" name="status">
+                <option value="none" selected disabled hidden>Status</option>
+                <option value="yes">Confirma</option>
+                <option value="no">Refuza</option>
+                <option value="done">Terminat</option>
+            </select>
+        </label>
+    </div>
+    <div class="command">
+        <div>
+            <h1>USER</h1>
+            <p>de la...pana la</p>
+        </div>
+        <label>
+            <select class="selectStatus" name="status">
+                <option value="none" selected disabled hidden>Status</option>
+                <option value="yes">Confirma</option>
+                <option value="no">Refuza</option>
+                <option value="done">Terminat</option>
+            </select>
+        </label>
+    </div>
+</div>
+<footer class="footer">
+    <p>&copy; 2022 Antorii</p>
+    <p>
+        <img src="../resources/earth.png" alt="earth">
+        Romania
+    </p>
+</footer>
+
+</body>
+</html>

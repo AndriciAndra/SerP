@@ -1,0 +1,311 @@
+main {
+    width: 1440px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../resources/bkFood.png");
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    min-height: 100%;
+    position: relative;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #B64141;
+    padding: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.header a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: "Zilla Slab";
+    font-weight: bold;
+}
+
+.header .link:hover {
+    color: black;
+    background-color: #F5F5F5;
+}
+
+.header a.active {
+    color: white;
+    -webkit-text-stroke: 2px #F4B795;
+    padding: 0;
+}
+
+.header a.active p {
+    font-family: "Zen Dots";
+    font-size: 25px;
+    margin: 0;
+    padding: 10px 10px 0px 10px;
+}
+
+.headerMobile {
+    background-color: #B64141;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+}
+
+.header_small a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: "Zilla Slab";
+    font-weight: bold;
+}
+
+.header_small .link:hover {
+    color: black;
+    background-color: #F5F5F5;
+}
+
+.header_small a.active {
+    color: white;
+    -webkit-text-stroke: 2px #F4B795;
+    padding: 0;
+}
+
+.header_small a.active p {
+    font-family: "Zen Dots";
+    font-size: 25px;
+    margin: 0;
+    padding: 10px 10px 0px 10px;
+}
+
+.header_small {
+    overflow: hidden;
+    background-color: #B64141;
+    padding: 0;
+}
+
+.buttonaut {
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    background-color: #B64141;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 30px;
+    font-family: "Zilla Slab";
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+    padding: 2%;
+    margin-left: 2%;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    font-family: "Imbue";
+    margin: 2%;
+    font-weight: normal;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.footer p{
+    margin: 0;
+}
+
+.formBox {
+    margin: 10% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+.rowDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 10%;
+}
+
+.columnDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin: 0 25%;
+}
+
+.dispRest {
+    background-color: #F5F5F5;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.restaurant, .produs {
+    width: 30%;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+}
+
+input, textarea, select {
+    border-radius: 8px;
+    border: 3px solid #f1f1f1;
+    padding: 2%;
+}
+
+.restaurant input, textarea , .produs input, textarea {
+    margin-bottom: 5%;
+    padding: 5%;
+}
+
+.restaurant .buttonaut, .produs .buttonaut {
+    margin-top: 30px;
+    padding: 4%;
+}
+
+.produs, .restaurant {
+    height: 300px;
+}
+
+.butoane {
+    display: flex;
+    justify-content: center;
+}
+
+input::placeholder, select {
+    font-family: "Zilla Slab";
+    color: black;
+    font-size: 15px;
+}
+
+#error {
+    color: #B64141;
+    font-weight: bolder;
+    font-family: "Zilla Slab";
+}
+
+#jsonMenu > input{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+#jsonMenu > span{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: -16px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAJUlEQVR4AcXJRwEAIBAAIPuXxgiOW3xZYzi1Q3Nqh+bUDk1yD9sQaUG/4ehuEAAAAABJRU5ErkJggg==");
+    cursor: ew-resize;
+}
+@media screen and (max-width: 700px) {
+    div.header {
+        display: none;
+    }
+
+    div.header_small {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #details {
+        display: none;
+    }
+
+    .overlay {
+        overflow-y: auto;
+    }
+
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+    #defaultTitle {
+        font-size: 40px;
+        margin: 5% 0 0 0;
+        align-content: center;
+        text-align: center;
+    }
+
+    #commandsList {
+        width: 80%;
+        margin: 20% 5% 60% 10%;
+    }
+
+    .command label {
+        padding-top: 10%;
+    }
+
+    .columnDiv {
+        width: 100%;
+        margin: 0;
+    }
+
+    .buttonaut {
+        margin-right: 40%;
+        margin-left: 40%;
+    }
+
+    .restaurant, .produs {
+        width: auto;
+        margin-bottom: 5%;
+    }
+
+    .dispRest {
+        flex-direction: column;
+    }
+
+    .rowDiv {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (min-width: 701px) {
+    div.header {
+        display: block;
+    }
+
+    div.header_small {
+        display: none;
+    }
+
+    .menu-small {
+        display: none;
+    }
+}
